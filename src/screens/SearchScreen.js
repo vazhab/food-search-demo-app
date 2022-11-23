@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from 'react-native';
 import SearchBar from "../components/SearchBar";
+import yelp from "../api/yelp";
 
 const SearchScreen = () => {
     const [term, setTerm] = useState('');
+    const [results, setResults] = useState([]);
 
     return (
         <View>
@@ -12,6 +14,7 @@ const SearchScreen = () => {
                 onTermChange={newTerm => setTerm(newTerm)}
                 onTermSubmit={() => console.log('term was submitted')} />
             <Text>Search Screen</Text>
+            <Text>We Have Found {results.length} results</Text>
         </View>
     );
 };
